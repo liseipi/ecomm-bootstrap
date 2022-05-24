@@ -3,6 +3,7 @@
     <button type="button" class="btn btn-secondary" @click="$router.push('/a')">A Theme</button>
     <button type="button" class="btn btn-secondary" @click="$router.push('/b')">B Theme</button>
     <button type="button" class="btn btn-secondary" @click="$router.push('/c')">C Theme</button>
+    
   </div>
 </template>
 

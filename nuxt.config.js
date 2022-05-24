@@ -24,11 +24,15 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/fonts/iconfont.css',
+    '@/assets/css/index.css',
+    '@/assets/css/a.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap',
+    { src: '@/assets/fonts/iconfont.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

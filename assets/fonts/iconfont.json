@@ -1,0 +1,30 @@
+{
+  "id": "3416219",
+  "name": "ecomm",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "项目图标",
+  "glyphs": [
+    {
+      "icon_id": "1356155",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "20000260",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "22358027",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    }
+  ]
+}
