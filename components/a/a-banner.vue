@@ -17,9 +17,6 @@ export default {
 <style scoped lang='scss'>
 @import '../../assets/css/a.scss';
 
-.a-banner {
-  height: 20000px;
-}
 .dropdown:hover .dropdown-menu {
   display: block;
 }

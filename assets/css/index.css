@@ -1,14 +1,66 @@
+ul,
+ol,
+li {
+  list-style: none;
+  padding: 0 !important;
+}
 
+a {
+  display: inline-block;
+  text-decoration: none !important;
+  /* 去除默认的下划线 */
+  color: #000 !important;
+  /* 去除默认的颜色和点击后变化的颜色 */
+}
 
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-a {
-  display: inline-block;
-}
+
 input {
   outline: none;
   border: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.bottom-menu {
+  background-color: #fff;
+  /* bottom: 100%; */
+  top: 100%;
+  /* transform: translateY(100%); */
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600 !important;
+}
+
+a {
+  cursor: pointer;
+}
+
+.yatext {
+  font-family: Cardo, sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }

@@ -26,13 +26,13 @@ export default {
   css: [
     '@/assets/fonts/iconfont.css',
     '@/assets/css/index.css',
-    '@/assets/css/a.scss'
+    '@/assets/css/a.scss',
+    '@/assets/css/animated.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap',
-    { src: '@/assets/fonts/iconfont.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -10,19 +10,19 @@
       </div>
       <div class="header-border">
         <div class="container d-flex align-items-center" style="flex:1;">
-          <div class="left d-flex align-items-center" style="flex:1;">
-            <span v-show="header_pos" @click="showBar" class="iconfont icon-gengduo icon-more"></span>
+          <div class="left d-flex align-items-center w-100">
+            <span v-show="header_pos" @click="showBar" class="iconfont icon-gengduo icon-more animate__animated animate__bounceInLeft"></span>
             <a class="a-header-logo d-none d-lg-inline-block" href="#"><img src="../../static/images/a-header-logo.webp"
                 alt=""></a>
             <div style="flex:1;">
-              <div class="d-flex mw-100 mw-lg-460">
-                <div class="rounded-pill border flex-center my-3 md-my-0" style="flex:1;">
+              <div class="a-header-input-box d-flex w-100">
+                <div class="rounded-pill border flex-center my-3 my-md-0" style="flex:1;">
                   <input @focus="clear_show = !clear_show" @blur="clear_show = !clear_show" class="a-header-input"
                     type="text" placeholder="Search...">
                   <span class="iconfont icon-sousuo position-relative "
                     style="left: -10px;font-size: 26px;cursor: pointer;"></span>
                 </div>
-                <span v-show="clear_show" class="iconfont icon-chahao ms-3" style="font-size: 25px;"></span>
+                <span v-show="clear_show" class="iconfont icon-more ms-3 animate__animated animate__fadeIn" style="font-size: 25px;"></span>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default {
   },
   watch: {
     header_pos: {
-      handler(newvalue) {
+      handler (newvalue) {
         this.bar_show = !newvalue
       }
     }
@@ -135,14 +135,6 @@ export default {
 <style scoped lang="scss">
 @import "../../assets/css/a.scss";
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.bottom-menu {
-  top: 100%;
-  right: 0;
-  /* transform: translateY(100%); */
-}
 .a-header {
   width: 100%;
   color: black;
@@ -193,9 +185,13 @@ export default {
   font-size: 14px;
   color: $a-base-color;
 }
+a-header-input-box {
+  transition: all 1s;
+}
 .a-header-icon {
   font-size: 25px;
 }
+
 .a-header-input {
   border: none;
   height: 30px;
@@ -234,6 +230,9 @@ ul li:hover .under_line {
   }
   .icon-more {
     display: inline-block;
+  }
+  .a-header-input-box {
+    max-width: 75%;
   }
 }
 </style>
