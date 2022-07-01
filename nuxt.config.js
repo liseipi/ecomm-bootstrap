@@ -33,6 +33,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap',
+    { src: '@/assets/fonts/iconfont.js', ssr: false },
+    '@/plugins/axios'//axios
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,15 +48,33 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    timeout: 8000,
+    proxy: true
   },
+
+  proxy: {
+    '/api': {
+    changeOrigin: true,
+    target: 'http://192.168.100.54:9000', // 允许跨域的服务器地址
+    pathRewrite: {
+      '^/api': ''
+    }
+   }
+  },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // routes
+  router: {
+    middleware: 'authenticated'
   }
 }

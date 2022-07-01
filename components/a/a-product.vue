@@ -4,31 +4,34 @@
       <h3>What 's Hot</h3>
       <ul class="d-flex justify-content-between py-4 flex-wrap">
         <li class="pro-list-item mb-5 position-relative" v-for="(item, index) in pro_list" :key="index">
-          <a class="img-box w-100" @mouseenter="showImg(index)" @mouseleave="hideImg(index)">
-            <transition name="ho" enter-active-class="animate__animated animate__fadeIn"
-              leave-active-class="animate__animated animate__fadeOut">
-              <img :key="item.cur"
-                :src="img_active == index ? '/images/a-pro-'+item.img : '/images/a-pro-'+item.hover_img">
-            </transition>
-            <div class="todo-box d-none d-lg-block" :class="index === img_active ? 'todo-box-active' : ''">
-              <div class="rounded-circle iconfont icon-gouwuche "></div>
-              <div class="rounded-circle iconfont icon-sousuo mt-2"></div>
+          <nuxt-link :to="{name: 'a-index-product', query:{id: item.id}}">
+            <a class="img-box w-100" @mouseenter="showImg(index)" @mouseleave="hideImg(index)">
+              <transition name="ho" enter-active-class="animate__animated animate__fadeIn"
+                leave-active-class="animate__animated animate__fadeOut">
+                <img :key="item.cur"
+                  :src="img_active == index ? item.img.url : item.hover_img.url">
+              </transition>
+              <div class="todo-box d-none d-lg-block" :class="index === img_active ? 'todo-box-active' : ''">
+                <div class="rounded-circle iconfont icon-gouwuche "></div>
+                <div class="rounded-circle iconfont icon-sousuo mt-2"></div>
+              </div>
+              <span v-if="item.hot" class="hot position-absolute px-2" style="lefft: 0;bottom: 0;">sale</span>
+
+              <!-- mobile -->
+              <span
+                class="d-flex d-lg-none position-absolute todo-box-mob iconfont icon-gouwuche rounded-circle"></span>
+              <!-- mobile -->
+            </a>
+
+            <div class="sale-box py-2">
+              <a class="sale-item-desc two-line-hidden">{{item.desc}}</a>
             </div>
-            <span v-if="item.hot" class="hot position-absolute px-2" style="lefft: 0;bottom: 0;">sale</span>
 
-            <!-- mobile -->
-            <span class="d-flex d-lg-none position-absolute todo-box-mob iconfont icon-gouwuche rounded-circle"></span>
-            <!-- mobile -->
-          </a>
-
-          <div class="sale-box py-2">
-            <a class="sale-item-desc">{{item.desc}}</a>
-          </div>
-
-          <div class="d-flex mt-2 align-items-end price-box">
-            <span>{{item.price}}</span>
-            <del v-if="item.hot" class="ms-2" style="font-size:12px;">{{item.hot}}</del>
-          </div>
+            <div class="d-flex mt-2 align-items-end price-box">
+              <span>{{item.price}}</span>
+              <del v-if="item.hot" class="ms-2" style="font-size:12px;">{{item.hot}}</del>
+            </div>
+          </nuxt-link>
         </li>
       </ul>
 
@@ -37,29 +40,46 @@
 </template>
 
 <script>
+
 export default {
+
+
+  props: {
+    products: {}
+  },
   // 定义属性
   data () {
     return {
       img_active: -1,
       curIndex: 0,
-      pro_list: [
-        { img: '1.jpg', cur: 1, hover_img: '1-hover.jpg', desc: 'Pink halter dress + bronzing embroidered cardigan two-piece set ', price: 'HK$353.10', hot: 'HK$509.75' },
-        { img: '2.jpg', cur: 2, hover_img: '2-hover.jpg', desc: 'Gold embroidered dress + baggy cardigan two-piece set ', price: 'HK$384.49', hot: 'HK$509.75' },
-        { img: '3.webp', cur: 3, hover_img: '3-hover.jpg', desc: 'White halter dress + embroidered cardigan two-piece set ', price: 'HK$517.60' },
-        { img: '4.jpg', cur: 4, hover_img: '4-hover.webp', desc: 'Printing maxi slip dress with cape sleeves short cardigan kaftan set ', price: 'HK$470.51' },
-        { img: '5.jpg', cur: 5, hover_img: '5-hover.jpg', desc: 'Beige tube top dress + sequin cardigan two-piece set ', price: 'HK$384.49' },
-      ]
+      pro_list: []
     }
   },
+  created () {
+    this.init()
+  },
   methods: {
+    init () {
+      this.pro_list = this.products.products.slice(0,6).map(item => {
+        return {
+          id: item.id,
+          img: item.images[0],
+          hover_img: item.images[1],
+          cur: 0,
+          desc: item.description
+        }
+      })
+    },
     showImg (index) {
       this.img_active = index
-      this.pro_list[index].cur++
+      this.pro_list[index].cur++ //控制图片切换
     },
     hideImg (index) {
       this.img_active = -1
-      this.pro_list[index].cur--
+      this.pro_list[index].cur-- //控制图片切换
+    },
+    toDetail () {
+
     }
   }
 }

@@ -26,9 +26,9 @@
         </div>
         <!-- support -->
 
-        <dic class="col-md-3 text-center py-4 py-md-0">
+        <div class="col-md-3 text-center py-4 py-md-0">
           <img class="footer-img" src="/images/a-footer-img.webp" alt="">
-        </dic>
+        </div>
 
         <!-- newsletter -->
         <div class="text-center text-md-start col-md-3 pt-2 pt-md-0">

@@ -71,7 +71,7 @@
       </div>
 
       <!-- bar -->
-      <div class="container" v-show="bar_show">
+      <div class="container animate__zoomInLeft animate__animated" v-show="bar_show">
         <ul class=" list-unstyled mb-0 d-none d-lg-flex">
           <li class="mx-3 position-relative dropdown" v-for="(item,index) in list" :key="index">
             <span class="py-3 d-inline-block" href="#" :id="'dropdownMenuButton'+index" role="button"
@@ -142,7 +142,7 @@ export default {
 }
 .a-header-pos {
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   top: 0;
   left: 0;
 }

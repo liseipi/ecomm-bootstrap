@@ -34,7 +34,6 @@ export default {
     setInterval(() => {
       that.flat = true;
       setTimeout(() => {
-        console.log('nav');
         that.flat = false
       }, 5000)
     }, 10000)

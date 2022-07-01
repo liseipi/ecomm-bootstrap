@@ -13,12 +13,26 @@ a {
   /* 去除默认的颜色和点击后变化的颜色 */
 }
 
+.two-line-hidden {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+}
+
+.footer {
+  clear: both;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.cur-poi {
+  cursor: pointer;
+}
 input {
   outline: none;
   border: none;

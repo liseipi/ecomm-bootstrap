@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="footer">
     <footer class="container footer">
       <div class="row">
         <div class="left col-12 col-lg-6 d-flex justify-content-center text-center d-lg-block text-lg-start">
